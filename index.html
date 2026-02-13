@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Classified Assignment</title>
+
+<style>
+body{
+    margin:0;
+    font-family:'Courier New', monospace;
+    background:black;
+    color:#e0e0e0;
+}
+
+/* Responsive container */
+.container{
+    width:90%;
+    max-width:800px;
+    margin:auto;
+}
+
+/* PASSWORD SCREEN */
+#passwordScreen{
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    background:black;
+}
+
+input{
+    padding:12px;
+    width:250px;
+    max-width:80%;
+    background:black;
+    border:1px solid #ff2e2e;
+    color:#ff2e2e;
+    font-size:16px;
+}
+
+button{
+    margin-top:15px;
+    padding:12px 22px;
+    background:black;
+    border:1px solid #ff2e2e;
+    color:#ff2e2e;
+    cursor:pointer;
+    font-size:15px;
+}
+
+button:hover{
+    background:#ff2e2e;
+    color:black;
+}
+
+/* DOSSIER SCREEN */
+#dossierScreen{
+    display:none;
+    padding:60px 0 120px;
+}
+
+.scanlines{
+    position:fixed;
+    width:100%;
+    height:100%;
+    background: repeating-linear-gradient(
+        0deg,
+        rgba(255,0,0,0.03),
+        rgba(255,0,0,0.03) 2px,
+        transparent 2px,
+        transparent 6px
+    );
+    pointer-events:none;
+}
+
+.frame{
+    border:2px solid #ff2e2e;
+    padding:8px;
+    margin:30px auto;
+    width:260px;
+    max-width:80%;
+    box-shadow:0 0 12px rgba(255,0,0,0.4);
+}
+
+.frame img{
+    width:100%;
+}
+
+.section-title{
+    color:#ff2e2e;
+    margin-top:40px;
+}
+
+ul{
+    line-height:1.9;
+}
+
+.mission-box{
+    margin-top:50px;
+    padding:25px;
+    border:1px solid #ff2e2e;
+    background:rgba(255,0,0,0.05);
+    position:relative;
+}
+
+#declineBtn{
+    position:relative;
+}
+
+/* FINAL SCREEN */
+#finalScreen{
+    display:none;
+    padding:80px 0 120px;
+    color:#ff8fa3;
+}
+
+#finalScreen h2{
+    color:#ff4f7a;
+}
+
+@media(min-width:1000px){
+    body{
+        font-size:18px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="scanlines"></div>
+
+<!-- PASSWORD -->
+<div id="passwordScreen">
+    <h2>ACCESS RESTRICTED</h2>
+    <p>Enter Clearance Code</p>
+    <input type="password" id="password">
+    <button onclick="checkPassword()">Access File</button>
+</div>
+
+<!-- DOSSIER -->
+<div id="dossierScreen">
+<div class="container">
+
+<h2 style="text-align:center; color:#ff2e2e;">
+CLASSIFIED ASSIGNMENT
+</h2>
+
+<div class="frame">
+    <img src="asset.jpg">
+</div>
+
+<h3 class="section-title">ISSUING AUTHORITY</h3>
+<p>
+Agent Name: Devanshi<br>
+Authorization Level: Lifetime Clearance<br>
+Intent: Permanent
+</p>
+
+<h3 class="section-title">ASSET EVALUATION</h3>
+<ul>
+<li>Emotionally strong under pressure</li>
+<li>Protective instinct: Exceptional</li>
+<li>Loyalty probability: 100%</li>
+<li>Long-term partnership capability: Confirmed</li>
+<li>Ride or Die potential: Elite Tier</li>
+</ul>
+
+<h3 class="section-title">MISSION DIRECTIVE</h3>
+<p>
+After careful observation and sincere reflection,
+Agent Devanshi has issued a lifetime assignment.
+</p>
+
+<div class="mission-box">
+<p>
+You are hereby selected for a permanent mission.
+</p>
+
+<p>
+Objective:<br>
+To become Devanshi’s ride or die —  
+in loyalty, partnership, growth, and love — for life.
+</p>
+
+<p>
+This mission has no exit clause.
+No expiration.
+No retreat.
+</p>
+
+<p style="margin-top:20px;">
+Do you accept this mission?
+</p>
+
+<button onclick="acceptMission()">ACCEPT MISSION</button>
+<button id="declineBtn" onmouseover="moveButton()">DECLINE</button>
+
+</div>
+
+</div>
+</div>
+
+<!-- FINAL SCREEN -->
+<div id="finalScreen">
+<div class="container">
+
+<h2>MISSION CONFIRMED 🩷</h2>
+
+<p>
+• I choose you.<br>
+• I trust you.<br>
+• I see a future with you.
+</p>
+
+<p>
+Since January 3, 2026, something inside me shifted.
+There has been comfort in your presence,
+strength in your silence,
+and warmth in your chaos.
+</p>
+
+<p>
+I am not assigning you this mission lightly.
+I am choosing you with intention.
+</p>
+
+<p>
+• I will stand beside you.<br>
+• I will grow with you.<br>
+• I will protect what we build.<br>
+• I will remain — consistently.
+</p>
+
+<p style="margin-top:40px; line-height:1.8;">
+Majhi shodh hoti anek divasanchi,<br>
+Swapna hoti eka saathichi,<br>
+Shevati sampali majhi pratiksha,<br>
+Tu alas majhya ayushyachi. 🩷
+</p>
+
+<p style="margin-top:30px;">
+You are my Marathi mulga.<br>
+My man.<br>
+My navra.
+</p>
+
+<p>
+This is my decision.<br>
+This is my heart.<br>
+This is my forever.
+</p>
+
+<p style="margin-top:40px; font-weight:bold;">
+— Devanshi
+</p>
+
+</div>
+</div>
+
+<!-- AUDIO -->
+<audio id="bgMusic" loop>
+    <source src="dhurandhar.mp3" type="audio/mpeg">
+</audio>
+
+<audio id="romanticMusic">
+    <source src="meherbaan.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+function checkPassword(){
+    if(document.getElementById("password").value === "nature hike"){
+        document.getElementById("passwordScreen").style.display="none";
+        document.getElementById("dossierScreen").style.display="block";
+        document.getElementById("bgMusic").play().catch(()=>{});
+    } else {
+        alert("ACCESS DENIED");
+    }
+}
+
+function moveButton(){
+    let btn = document.getElementById("declineBtn");
+    btn.style.position="absolute";
+    btn.style.top = Math.random()*200 + "px";
+    btn.style.left = Math.random()*200 + "px";
+}
+
+function acceptMission(){
+    document.getElementById("bgMusic").pause();
+    document.getElementById("dossierScreen").style.display="none";
+    document.getElementById("finalScreen").style.display="block";
+    document.getElementById("romanticMusic").play();
+}
+</script>
+
+</body>
+</html>
