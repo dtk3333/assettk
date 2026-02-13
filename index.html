@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CLASSIFIED DOSSIER</title>
+
+<style>
+
+body {
+  margin: 0;
+  font-family: 'Courier New', monospace;
+  background: black;
+  color: #ff3b3b;
+  overflow-x: hidden;
+}
+
+/* BACKGROUND SLIDESHOW */
+.bg-slide {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: url('asset.jpg') center/cover no-repeat;
+  animation: zoom 20s infinite alternate ease-in-out;
+  z-index: -3;
+  filter: brightness(0.35);
+}
+
+@keyframes zoom {
+  from { transform: scale(1); }
+  to { transform: scale(1.1); }
+}
+
+/* SCANLINES */
+.scanlines {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(255,0,0,0.08),
+    rgba(255,0,0,0.08) 2px,
+    transparent 2px,
+    transparent 4px
+  );
+  animation: scan 5s linear infinite;
+  z-index: -2;
+}
+
+@keyframes scan {
+  from { background-position: 0 0; }
+  to { background-position: 0 100px; }
+}
+
+/* PASSWORD SCREEN */
+#login {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+input {
+  padding: 10px;
+  background: black;
+  border: 1px solid red;
+  color: red;
+  font-size: 16px;
+}
+
+button {
+  margin: 15px;
+  padding: 12px 20px;
+  background: black;
+  border: 2px solid red;
+  color: red;
+  cursor: pointer;
+}
+
+button:hover {
+  background: red;
+  color: black;
+}
+
+.container {
+  display: none;
+  padding: 40px 20px 120px;
+  max-width: 600px;
+  margin: auto;
+  text-align: center;
+}
+
+/* DOSSIER FRAME IMAGE */
+.asset-frame {
+  margin-top: 20px;
+  border: 2px solid red;
+  padding: 5px;
+  box-shadow: 0 0 15px red;
+}
+
+.asset-frame img {
+  width: 100%;
+  max-width: 280px;
+}
+
+.capabilities {
+  text-align: left;
+  margin-top: 20px;
+  line-height: 1.8;
+}
+
+#noBtn {
+  position: relative;
+}
+
+/* TRANSITION */
+.transition-screen {
+  position: fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:black;
+  color:gold;
+  display:none;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  padding:20px;
+  z-index:5;
+  font-size:20px;
+}
+
+/* ROMANTIC MODE */
+.romantic-mode {
+  background: radial-gradient(circle, #300000, black);
+  color: #ffd700;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="bg-slide"></div>
+<div class="scanlines"></div>
+
+<!-- PASSWORD -->
+<div id="login">
+  <h2>🔐 ACCESS RESTRICTED</h2>
+  <p>Enter Clearance Code</p>
+  <input type="password" id="password">
+  <button onclick="checkPassword()">ACCESS DOSSIER</button>
+</div>
+
+<!-- MAIN DOSSIER -->
+<div class="container" id="mainContent">
+
+<h2>CLASSIFIED DOSSIER</h2>
+
+<div class="asset-frame">
+  <img src="asset.jpg">
+</div>
+
+<div class="capabilities">
+⚠ ASSET: TANGO KILO<br>
+• Heavy Weight Lifter<br>
+• Elite Shooting Skills<br>
+• MMA Combat Trained<br>
+• Tactical Dominance<br>
+• Mentally Extremely Strong<br>
+• Digital Presence: @shatrubodh.bh<br>
+• Psychological Impact: Heart Destabilizer
+</div>
+
+<h3 style="margin-top:40px;">Do you accept this lifetime classified mission?</h3>
+
+<button onclick="acceptMission()">YES</button>
+<button id="noBtn" onmouseover="moveNo()">NO</button>
+
+</div>
+
+<div class="transition-screen" id="transitionScreen"></div>
+
+<audio id="bgMusic" loop>
+  <source src="dhurandhar.mp3" type="audio/mpeg">
+</audio>
+
+<audio id="romanticMusic">
+  <source src="meherbaan.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+
+function checkPassword() {
+  let pass = document.getElementById("password").value;
+  if(pass === "nature hike"){
+    document.getElementById("login").style.display = "none";
+    document.getElementById("mainContent").style.display = "block";
+    document.getElementById("bgMusic").play();
+  } else {
+    alert("ACCESS DENIED");
+  }
+}
+
+function moveNo() {
+  let btn = document.getElementById("noBtn");
+  btn.style.position = "absolute";
+  btn.style.top = Math.random() * window.innerHeight + "px";
+  btn.style.left = Math.random() * window.innerWidth + "px";
+}
+
+function acceptMission() {
+
+  document.getElementById("bgMusic").pause();
+  document.getElementById("mainContent").style.display = "none";
+  document.querySelector(".scanlines").style.display = "none";
+
+  let screen = document.getElementById("transitionScreen");
+  screen.style.display = "flex";
+
+  setTimeout(function(){
+
+    document.body.classList.add("romantic-mode");
+    document.getElementById("romanticMusic").play();
+
+    screen.innerHTML = `
+    <div style="max-width:600px;">
+    <h2>You Said Yes ❤️</h2><br>
+
+    Majhi shodh hoti anek divasanchi,<br><br>
+    Swapna hoti eka saathichi,<br><br>
+    Shevati sampali majhi pratiksha,<br><br>
+    Trayodh ala majhya ayushyachi 💕<br><br>
+
+    I am so lucky to have you in my life.<br><br>
+    Ever since January 3, 2026, I have been nothing short of grateful that you are there in my world.<br><br>
+    I fully accept you for who you are.<br>
+    I will stand by you in everything that comes our way.<br><br>
+    You are my Marathi mulga… my man… my navra.<br><br>
+    And this — this is for you. ❤️
+    </div>
+    `;
+
+  }, 2500);
+}
+
+</script>
+
+</body>
+</html>
