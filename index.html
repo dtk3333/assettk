@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Classified Intelligence File</title>
+
+<style>
+
+body{
+    margin:0;
+    font-family:'Courier New', monospace;
+    background:black;
+    color:#e0e0e0;
+}
+
+/* ---------- GLOBAL RESPONSIVE LAYOUT ---------- */
+.container{
+    width:90%;
+    max-width:800px;
+    margin:auto;
+}
+
+/* ---------- PASSWORD SCREEN ---------- */
+#passwordScreen{
+    height:100vh;
+    background:black;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+}
+
+input{
+    padding:12px;
+    width:250px;
+    max-width:80%;
+    background:black;
+    border:1px solid #ff2e2e;
+    color:#ff2e2e;
+    font-size:16px;
+}
+
+button{
+    margin-top:15px;
+    padding:12px 22px;
+    background:black;
+    border:1px solid #ff2e2e;
+    color:#ff2e2e;
+    cursor:pointer;
+    font-size:15px;
+}
+
+button:hover{
+    background:#ff2e2e;
+    color:black;
+}
+
+/* ---------- DOSSIER SCREEN ---------- */
+#dossierScreen{
+    display:none;
+    padding:60px 0 120px;
+}
+
+.scanlines{
+    position:fixed;
+    width:100%;
+    height:100%;
+    background: repeating-linear-gradient(
+        0deg,
+        rgba(255,0,0,0.03),
+        rgba(255,0,0,0.03) 2px,
+        transparent 2px,
+        transparent 6px
+    );
+    pointer-events:none;
+}
+
+.frame{
+    border:2px solid #ff2e2e;
+    padding:8px;
+    margin:30px auto;
+    width:260px;
+    max-width:80%;
+    box-shadow:0 0 12px rgba(255,0,0,0.4);
+}
+
+.frame img{
+    width:100%;
+}
+
+.section-title{
+    color:#ff2e2e;
+    margin-top:40px;
+}
+
+ul{
+    line-height:1.9;
+}
+
+.mission-box{
+    margin-top:50px;
+    padding:25px;
+    border:1px solid #ff2e2e;
+    background:rgba(255,0,0,0.05);
+}
+
+/* ---------- FINAL SCREEN ---------- */
+#finalScreen{
+    display:none;
+    padding:80px 0 120px;
+    color:#ff8fa3;
+}
+
+#finalScreen h2{
+    color:#ff4f7a;
+}
+
+/* ---------- LARGE SCREEN IMPROVEMENTS ---------- */
+@media(min-width:1000px){
+    body{
+        font-size:18px;
+    }
+
+    .frame{
+        width:300px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="scanlines"></div>
+
+<!-- PASSWORD -->
+<div id="passwordScreen">
+    <h2>ACCESS RESTRICTED</h2>
+    <p>Enter Clearance Code</p>
+    <input type="password" id="password">
+    <button onclick="checkPassword()">Access File</button>
+</div>
+
+<!-- DOSSIER -->
+<div id="dossierScreen">
+<div class="container">
+
+<h2 style="text-align:center; color:#ff2e2e;">CLASSIFIED DOSSIER</h2>
+
+<div class="frame">
+    <img src="asset.jpg">
+</div>
+
+<h3 class="section-title">IDENTIFICATION</h3>
+<p>
+Codename: TANGO KILO<br>
+Operational Category: High Value Asset<br>
+Threat Level: Emotionally Disarming<br>
+Status: Active
+</p>
+
+<h3 class="section-title">CORE ATTRIBUTES</h3>
+<ul>
+<li>Physically disciplined and resilient</li>
+<li>Mental strength under pressure</li>
+<li>Protective instinct: High</li>
+<li>Loyalty index: Absolute</li>
+<li>Strategic thinker with emotional depth</li>
+</ul>
+
+<h3 class="section-title">PSYCHOLOGICAL ASSESSMENT</h3>
+<p>
+Subject demonstrates rare balance between dominance and softness.
+Capable of standing firm during adversity while offering unwavering emotional stability.
+Displays long-term commitment capability and emotional consistency.
+</p>
+
+<div class="mission-box">
+<h3>CLASSIFIED LIFETIME MISSION</h3>
+
+<p>
+Following full evaluation, a permanent assignment has been authorized.
+</p>
+
+<p>
+You are hereby assigned to Agent <strong>Devanshi</strong>.
+</p>
+
+<p>
+Mission Objective:
+To become her ride or die — in loyalty, protection, partnership, and love — for life.
+</p>
+
+<p>
+This is permanent.
+This is unwavering.
+This is lifelong.
+</p>
+
+<p style="margin-top:20px;">
+Do you accept this lifetime mission?
+</p>
+
+<button onclick="acceptMission()">ACCEPT MISSION</button>
+
+</div>
+
+</div>
+</div>
+
+<!-- FINAL SCREEN -->
+<div id="finalScreen">
+<div class="container">
+
+<h2>MISSION STATUS: ACCEPTED</h2>
+
+<p>
+• I choose you, Devanshi.<br>
+• I stand beside you — always.<br>
+• I accept you completely, exactly as you are.
+</p>
+
+<p>
+Since January 3, 2026, something shifted in my world.
+There has been strength in my steps and calm in my chaos —
+because you are in my life.
+</p>
+
+<p>
+• I will stay through storms.<br>
+• I will protect what we build.<br>
+• I will remain loyal — without hesitation.
+</p>
+
+<p>
+You are my Marathi mulga.  
+My man.  
+My navra.
+</p>
+
+<p>
+And this mission?
+It doesn’t expire.
+It doesn’t weaken.
+It lasts forever.
+</p>
+
+</div>
+</div>
+
+<!-- AUDIO -->
+<audio id="bgMusic" loop>
+    <source src="dhurandhar.mp3" type="audio/mpeg">
+</audio>
+
+<audio id="romanticMusic">
+    <source src="meherbaan.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+
+function checkPassword(){
+    if(document.getElementById("password").value === "nature hike"){
+
+        document.getElementById("passwordScreen").style.display="none";
+        document.getElementById("dossierScreen").style.display="block";
+
+        // PLAY DHURANDHAR AFTER USER INTERACTION
+        var bg = document.getElementById("bgMusic");
+        bg.play().catch(function(error){
+            console.log("Autoplay prevented:", error);
+        });
+
+    }else{
+        alert("ACCESS DENIED");
+    }
+}
+
+function acceptMission(){
+
+    // STOP DHURANDHAR
+    document.getElementById("bgMusic").pause();
+
+    document.getElementById("dossierScreen").style.display="none";
+    document.getElementById("finalScreen").style.display="block";
+
+    // PLAY MEHERBAAN
+    document.getElementById("romanticMusic").play();
+}
+
+</script>
+
+</body>
+</html>
