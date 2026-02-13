@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Clearance: Forever</title>
+
+<style>
+body{
+    margin:0;
+    font-family:'Courier New', monospace;
+    background:black;
+    color:#e0e0e0;
+}
+
+.container{
+    width:90%;
+    max-width:800px;
+    margin:auto;
+}
+
+#passwordScreen{
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+}
+
+input{
+    padding:12px;
+    width:250px;
+    max-width:80%;
+    background:black;
+    border:1px solid #ff2e2e;
+    color:#ff2e2e;
+}
+
+button{
+    margin-top:15px;
+    padding:12px 22px;
+    background:black;
+    border:1px solid #ff2e2e;
+    color:#ff2e2e;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#ff2e2e;
+    color:black;
+}
+
+#dossierScreen{
+    display:none;
+    padding:60px 0 120px;
+}
+
+.scanlines{
+    position:fixed;
+    width:100%;
+    height:100%;
+    background: repeating-linear-gradient(
+        0deg,
+        rgba(255,0,0,0.03),
+        rgba(255,0,0,0.03) 2px,
+        transparent 2px,
+        transparent 6px
+    );
+    pointer-events:none;
+}
+
+.frame{
+    border:2px solid #ff2e2e;
+    padding:8px;
+    margin:30px auto;
+    width:260px;
+    max-width:80%;
+    box-shadow:0 0 12px rgba(255,0,0,0.4);
+}
+
+.frame img{
+    width:100%;
+}
+
+.section-title{
+    color:#ff2e2e;
+    margin-top:40px;
+}
+
+ul{
+    line-height:1.9;
+}
+
+.mission-box{
+    margin-top:50px;
+    padding:25px;
+    border:1px solid #ff2e2e;
+    background:rgba(255,0,0,0.05);
+    position:relative;
+}
+
+#declineBtn{
+    position:relative;
+}
+
+#finalScreen{
+    display:none;
+    padding:80px 0 120px;
+    color:#ff8fa3;
+}
+
+#finalScreen h2{
+    color:#ff4f7a;
+}
+</style>
+</head>
+
+<body>
+
+<div class="scanlines"></div>
+
+<!-- PASSWORD SCREEN -->
+<div id="passwordScreen">
+    <h2>ACCESS RESTRICTED</h2>
+    <p>Enter Clearance Code</p>
+    <input type="password" id="password">
+    <button onclick="checkPassword()">Access File</button>
+</div>
+
+<!-- DOSSIER -->
+<div id="dossierScreen">
+<div class="container">
+
+<h2 style="text-align:center; color:#ff2e2e;">CLASSIFIED ASSIGNMENT</h2>
+
+<div class="frame">
+    <img src="asset.jpg" alt="Asset Image">
+</div>
+
+<h3 class="section-title">ISSUING AUTHORITY</h3>
+<p>
+Command Authority: God’s Cutest Soldier (Delta Kilo)<br>
+Clearance Level: Divine Lifetime Clearance<br>
+Intent Status: Permanent & Non-Revocable
+</p>
+
+<h3 class="section-title">ASSET EVALUATION</h3>
+<ul>
+<li>Emotional Stability Under Pressure: Verified</li>
+<li>Protective Instinct: Exceptional</li>
+<li>Loyalty Probability: 100%</li>
+<li>Ride or Die Potential: Elite Tier</li>
+<li>Portfolio Strength: 10/10 Ragebaiter</li>
+<li>Operational Driving Skills: High-Speed Precision Specialist (Controlled Chaos Certified)</li>
+<li>Technical Classification: Engineer — Analytical & Tactical</li>
+<li>Service Rank: Flying Officer — Indian Air Force</li>
+<li>Combat Mode: Kill Machine / Skull Crusher Protocol</li>
+<li>Gentleman Protocol: Permanently Enabled</li>
+<li>Care Index: Super Caring — Protective & Attentive</li>
+<li>Emotional Intelligence: Grounded & Reliable</li>
+</ul>
+
+<h3 class="section-title">MISSION DIRECTIVE</h3>
+<p>
+Following extended observation and instinct beyond logic,
+God’s Cutest Soldier (Delta Kilo)
+hereby issues a lifetime operational assignment.
+</p>
+
+<div class="mission-box">
+<p>
+You are officially selected for Permanent Deployment.
+</p>
+
+<p>
+Objective:<br>
+Remain Ride or Die — in loyalty, partnership, growth, and love — indefinitely.
+</p>
+
+<p>
+No exit clause.<br>
+No expiration.<br>
+No surrender.
+</p>
+
+<p style="margin-top:20px;">Do you accept this assignment?</p>
+
+<button onclick="acceptMission()">ACCEPT MISSION</button>
+<button id="declineBtn" onmouseover="moveButton()">DECLINE</button>
+
+</div>
+
+</div>
+</div>
+
+<!-- FINAL SCREEN -->
+<div id="finalScreen">
+<div class="container">
+
+<h2>MISSION CONFIRMED ❤️</h2>
+
+<p>
+• Selection was intentional.<br>
+• Trust granted fully.<br>
+• Future aligned.
+</p>
+
+<p>
+Since January 3, 2026,
+systems recalibrated.
+Your presence became comfort.
+Your silence became strength.
+Your chaos became warmth.
+</p>
+
+<p>
+Standing beside you — confirmed.<br>
+Growing with you — confirmed.<br>
+Protecting what we build — confirmed.
+</p>
+
+<p style="margin-top:40px; line-height:1.8;">
+Majhi shodh hoti anek divasanchi,<br>
+Swapna hoti eka saathichi,<br>
+Shevati sampali majhi pratiksha,<br>
+Tango Kilo ala majhya ayushyachi 💕
+</p>
+
+<p style="margin-top:35px; font-size:18px;">
+You are my Marathi mulga,<br>
+majha navra,<br>
+majha patiparmeshwar.
+</p>
+
+<p style="margin-top:30px; font-size:18px;">
+I love you.
+</p>
+
+<p style="margin-top:30px; font-weight:bold;">
+— God’s Cutest Soldier (Delta Kilo)
+</p>
+
+</div>
+</div>
+
+<!-- AUDIO -->
+<audio id="bgMusic" loop>
+    <source src="dhurandhar.mp3" type="audio/mpeg">
+</audio>
+
+<audio id="romanticMusic">
+    <source src="meherbaan.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+function checkPassword(){
+    let entered = document.getElementById("password").value.trim();
+    if(entered === "nature hike"){
+        document.getElementById("passwordScreen").style.display="none";
+        document.getElementById("dossierScreen").style.display="block";
+        try { document.getElementById("bgMusic").play(); } catch(e){}
+    } else {
+        alert("ACCESS DENIED");
+    }
+}
+
+function moveButton(){
+    let btn = document.getElementById("declineBtn");
+    btn.style.position="absolute";
+    btn.style.top = Math.random()*250 + "px";
+    btn.style.left = Math.random()*250 + "px";
+}
+
+function acceptMission(){
+    try { document.getElementById("bgMusic").pause(); } catch(e){}
+    document.getElementById("dossierScreen").style.display="none";
+    document.getElementById("finalScreen").style.display="block";
+    try { document.getElementById("romanticMusic").play(); } catch(e){}
+}
+</script>
+
+</body>
+</html>
